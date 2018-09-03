@@ -1,0 +1,7 @@
+D:\Niklas\Rolf\Rolf\bin\Debug\Rolf.exe.config
+D:\Niklas\Rolf\Rolf\bin\Debug\Rolf.exe
+D:\Niklas\Rolf\Rolf\bin\Debug\Rolf.pdb
+D:\Niklas\Rolf\Rolf\obj\Debug\Rolf.csprojResolveAssemblyReference.cache
+D:\Niklas\Rolf\Rolf\obj\Debug\Rolf.csproj.CoreCompileInputs.cache
+D:\Niklas\Rolf\Rolf\obj\Debug\Rolf.exe
+D:\Niklas\Rolf\Rolf\obj\Debug\Rolf.pdb
