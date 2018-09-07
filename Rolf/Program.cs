@@ -28,6 +28,8 @@ namespace Rolf
         private static IntPtr winHandle = IntPtr.Zero;
 
         private static string action = String.Empty;
+
+        private static bool talkative = false;
         
         [DllImport("user32.dll")]
         static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
@@ -102,7 +104,8 @@ namespace Rolf
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Usage: rolf.exe \"title of window\" action");
+                Console.WriteLine("Usage: rolf.exe \"title of window\" action talkative (optional)");
+                Console.WriteLine("");
                 Console.WriteLine("Available actions:");
                 Console.WriteLine("SW_HIDE");
                 Console.WriteLine("SW_SHOWNORMAL");
@@ -116,6 +119,11 @@ namespace Rolf
                 Console.WriteLine("SW_SHOWMINNOACTIVE");
                 Console.WriteLine("SW_SHOWNA");
                 Console.WriteLine("SW_RESTORE");
+                Console.WriteLine("");
+                Console.WriteLine("talkative is either -t or nothing at all. It will print an error message and wait for a keypress");
+                Console.WriteLine("");
+                Console.WriteLine("Example:");
+                Console.WriteLine("rolf \"a window title\" SW_SHOW -t");
 
                 Console.ReadKey();
 
@@ -154,14 +162,23 @@ namespace Rolf
 
             action = args[1];
 
+            if (args.Length == 3)
+            {
+                if (args[2] == "-t")
+                    talkative = true;
+            }
+
             //Console.WriteLine("Wins: " + lWins.Count.ToString());
             //Console.ReadKey();
 
-            if (lWins.Count == 0)
+            if (winHandle == IntPtr.Zero)
             {
-                Console.WriteLine("Window not found");
+                if (talkative)
+                {
+                    Console.WriteLine("Window not found");
 
-                Console.ReadKey();
+                    Console.ReadKey();
+                }
             }
             else
             {
